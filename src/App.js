@@ -1,23 +1,34 @@
 import logo from './logo.svg';
 import './App.css';
+import ListadoPersonajes from './components/listadoPersonajes';
+import React,{useState} from 'react'
 
 function App() {
+
+  const [numPagina, setNumPagina]=useState(1);
+
+  function incNumPagina() {
+    setNumPagina(numPagina+1)
+  }
+
+  function decNumPagina() {
+    if(numPagina>1){
+      setNumPagina(numPagina-1)
+    }
+    
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <label>Filtrado personaje</label>
+      <input type='text'/>
+      <ListadoPersonajes numPagina={numPagina}></ListadoPersonajes>
+
+      <button onClick={decNumPagina}>Prev</button>
+          <p>{numPagina}</p>
+      <button onClick={incNumPagina}>Next</button>
+
+      
     </div>
   );
 }
