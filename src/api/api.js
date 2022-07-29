@@ -19,3 +19,13 @@ export const getCharacter=async (url)=>{
     }
 }
 
+export const searchCharacter=async(cadena)=>{
+    let url=`https://swapi.dev/api/people/?search=${cadena}`
+    try {
+        const res=await axios(url)
+        return res.data.results;
+    } catch (error) {
+        
+    }
+}
+

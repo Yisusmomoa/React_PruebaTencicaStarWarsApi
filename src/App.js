@@ -17,17 +17,24 @@ function App() {
     }
     
   }
+  const stylesContainerButtons={
+    display:'flex',
+    flexDirection:'row',
+    justifyContent:'center',
+    flexWrap:'wrap',
+    marginRight:'10px'
+  }
 
   return (
     <div className="App">
-      <label>Filtrado personaje</label>
-      <input type='text'/>
+     
       <ListadoPersonajes numPagina={numPagina}></ListadoPersonajes>
 
-      <button onClick={decNumPagina}>Prev</button>
-          <p>{numPagina}</p>
-      <button onClick={incNumPagina}>Next</button>
-
+      <div style={stylesContainerButtons}>
+        <button onClick={decNumPagina}>Prev</button>
+            <p>|{numPagina}|</p>
+        <button onClick={incNumPagina}>Next</button>
+      </div>
       
     </div>
   );
